@@ -27,7 +27,7 @@ void animate(char *msg, unsigned char *program) {
         switch (*pc) {
             case 0x00:
                 break;
-                //crash2
+                //crash1
             case 0x01:
                 if (arg1 < 16)
                     regs[arg1] = *mptr;
@@ -195,7 +195,7 @@ struct this_gift_card *gift_card_reader(FILE *input_fd) {
 		/* JAC: Why aren't return types checked? */
 		fread(&ret_val->num_bytes, 4,1, input_fd);
     
-    //crash1
+    //crash2
     if (ret_val->num_bytes < 0)
 		{
 		  printf("Error. \n");
