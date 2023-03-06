@@ -12,12 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+steps:
+    - uses: actions/checkout@v2
+      
+    - name: test crash1
+      run: ./giftcardreader 1 tests/crash1.gft && ./giftcardreader 2 tests/crash1.gft 
+      
+    - name: test crash2
+      run: ./giftcardreader 1 tests/crash2.gft && ./giftcardreader 2 tests/crash2.gft    
+      
+    - name: test hang
+      run: gcc ./giftcardreader.c -o  giftcardreader && ./giftcardreader 2 tests/hang.gft
+      
+    - name: test cov1
+      run: gcc ./giftcardreader3.c -o  giftcardreader && ./giftcardreader 1 fuzz/cov1.gft 
+      
+    - name: test cov2
+      run: ./giftcardreader 1 fuzz/cov2.gft
+      
+    - name: test fuzzer1
+      run: ./giftcardreader 1 fuzz/fuzzer1.gft 
+      
+    - name: test fuzzer1
+      run: ./giftcardreader 1 fuzz/fuzzer2.gft 
