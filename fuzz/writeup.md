@@ -1,10 +1,9 @@
 ## TESTING
-
 1. cov1.gft
-* Info: 
+* Info: The type_of_record statement in examplegiftcardwriter.c was set to 3 in order to communicate with the animate function in giftcardreader.c, which increased coverage.
 
 2. cov2.gft: 
-* Info: 
+* Info: The gcrd_ptr->type_of_record == 1 statement was changed to gcrd_ptr->type_of_record == 2 in order to increase coverage of cases requiring a value other than 1.
 
 3. fuzzer1.gft
 * Info: Using afl-fuzz to create test cases, a hang was revealed in case 0x10 similar to the one in case 0x10.
