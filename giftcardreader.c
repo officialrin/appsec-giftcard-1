@@ -280,6 +280,14 @@ struct this_gift_card *thisone;
 int main(int argc, char **argv) {
     // BDG: no argument checking?
 	FILE *input_fd = fopen(argv[2],"r");
+	
+	//agnostic
+	if (input_fd == NULL)
+	{
+		printf("No file found.\n");
+		return 0;
+	}	
+		
 	thisone = gift_card_reader(input_fd);
 	if (argv[1][0] == '1') print_gift_card_info(thisone);
     else if (argv[1][0] == '2') gift_card_json(thisone);
