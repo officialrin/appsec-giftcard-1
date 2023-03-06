@@ -66,7 +66,8 @@ void animate(char *msg, unsigned char *program) {
                 pc += (unsigned char)arg1;
                 break;
             case 0x10:
-                if (zf) pc += (char)arg1;
+		//fuzzer1
+                if (zf) pc += (unsigned char)arg1;
                 break;
         }
         pc+=3;
